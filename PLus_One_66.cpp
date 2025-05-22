@@ -4,45 +4,41 @@
 using namespace std;
 class Solution {
 public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        for(int i = 0;i<n;i++)
-        {
-            nums1.pop_back();
-        }
-        for(int val : nums2){
-            nums1.push_back(val);
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> result;
 
-    }
-    
-    sort(nums1.begin(),nums1.end());
+        for (int i = 0; i < numRows; i++) {
+            // 1) Create a row of length (i+1), filled with 1s.
+            vector<int> currentRow(i + 1, 1);
+
+            // 2) For each “middle” element, sum the two elements above it:
+            //    those are in the previous row, which is result.back().
+            for (int j = 1; j < i; j++) {
+                currentRow[j] = result.back()[j - 1]   // left parent
+                              + result.back()[j];      // right parent
+            }
+
+            // 3) Append this row to result.
+            result.push_back(currentRow);
+        }
+
+        return result;
     }
 };
 
-
 int main (){
-    vector<int> nums1,nums2 ;
-    cout<<"enter size of vector 1"<<endl;
-    int m;
-    cin>>m;
-    for(int i=0; i<m;i++){
-        cout<<"enter "<<i<<" element of vector"<<endl;
-      int j;
-      cin>>j;
-      nums1.push_back(j);
-    }
-    cout<<"enter size of vector 2"<<endl;
-    int n;
-    cin>>n;
-    for(int i=0; i<n;i++){
-        cout<<"enter "<<i<<" element of vector"<<endl;
-      int j;
-      cin>>j;
-      nums2.push_back(j);
-    }
+ int n ; cout<<"Enter rows of pascal triangle";
+cin >>n ;
     
     Solution a;
- a.merge(nums1,m,nums2,n);
- for (int val : nums1){
-    cout<<val;
- }
+vector<vector<int>> d=a.generate(n);
+for (int i = 0; i < n; i++)
+{
+   for (int j = 0; j <=i; j++)
+   {cout<<d[i][j]<<" ";
+   }
+   cout<<"\n";   
 }
+
+
+ }
