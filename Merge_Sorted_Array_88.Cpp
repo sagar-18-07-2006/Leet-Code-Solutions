@@ -32,4 +32,5 @@ int main(){
     Solution a;
     vector<int> c= a.getRow(n);
     
+    
 }

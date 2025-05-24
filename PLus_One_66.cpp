@@ -4,41 +4,41 @@
 using namespace std;
 class Solution {
 public:
-    vector<vector<int>> generate(int numRows) {
-        vector<vector<int>> result;
-
-        for (int i = 0; i < numRows; i++) {
-            // 1) Create a row of length (i+1), filled with 1s.
-            vector<int> currentRow(i + 1, 1);
-
-            // 2) For each “middle” element, sum the two elements above it:
-            //    those are in the previous row, which is result.back().
-            for (int j = 1; j < i; j++) {
-                currentRow[j] = result.back()[j - 1]   // left parent
-                              + result.back()[j];      // right parent
+    vector<int> plusOne(vector<int>& v) {
+        int n = v.size();
+        for(int i = n-1; i >= 0; i--){
+            if(i == n-1)
+                v[i]++;
+            if(v[i] == 10){
+                v[i] = 0;
+                if(i != 0){
+                    v[i-1]++;
+                }
+                else{
+                    v.push_back(0);
+                    v[i] = 1;
+                }
             }
-
-            // 3) Append this row to result.
-            result.push_back(currentRow);
         }
-
-        return result;
+        return v;
     }
 };
 
 int main (){
  int n ; cout<<"Enter rows of pascal triangle";
 cin >>n ;
-    
+      vector<int> nums ;
+    cout<<"enter size of vectors"<<endl;
+    int n;
+    cin>>n;
+     for(int i=0; i<n;i++){
+        cout<<"enter "<<i<<" element of vector"<<endl;
+      int j;
+      cin>>j;
+      nums.push_back(j);
+    }
     Solution a;
-vector<vector<int>> d=a.generate(n);
-for (int i = 0; i < n; i++)
-{
-   for (int j = 0; j <=i; j++)
-   {cout<<d[i][j]<<" ";
-   }
-   cout<<"\n";   
-}
+vector<int> d=a.plusOne(nums);
 
 
  }
