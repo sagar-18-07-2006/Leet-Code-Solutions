@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include<algorithm>
+#include<climits>
 using namespace std;
 class Solution {
 public:
@@ -17,13 +18,10 @@ public:
 };            
 
 int main (){
- int n ; cout<<"Enter rows of pascal triangle";
+ int n ; 
+ cout<<"Enter elements in vector";
 cin >>n ;
-    
-    vector<int> nums ;
-    cout<<"enter size of vectors"<<endl;
-    int n;
-    cin>>n;
+   vector<int> nums;
      for(int i=0; i<n;i++){
         cout<<"enter "<<i<<" element of vector"<<endl;
       int j;
@@ -31,7 +29,7 @@ cin >>n ;
       nums.push_back(j);
     }
     Solution a;
-    int a = a.maxProfit(nums);
+    int j = a.maxProfit(nums);
     
    
 }
