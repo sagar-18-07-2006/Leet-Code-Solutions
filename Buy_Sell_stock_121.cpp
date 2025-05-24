@@ -20,15 +20,21 @@ int main (){
  int n ; cout<<"Enter rows of pascal triangle";
 cin >>n ;
     
+    vector<int> nums ;
+    cout<<"enter size of vectors"<<endl;
+    int n;
+    cin>>n;
+     for(int i=0; i<n;i++){
+        cout<<"enter "<<i<<" element of vector"<<endl;
+      int j;
+      cin>>j;
+      nums.push_back(j);
+    }
     Solution a;
-vector<vector<int>> d=a.generate(n);
-for (int i = 0; i < n; i++)
-{
-   for (int j = 0; j <=i; j++)
-   {cout<<d[i][j]<<" ";
-   }
-   cout<<"\n";   
+    int a = a.maxProfit(nums);
+    
+   
 }
 
 
- }
+
